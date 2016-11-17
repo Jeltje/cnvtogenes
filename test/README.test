@@ -1,0 +1,5 @@
+To test the container, run
+
+docker run -v `pwd`:/data <your/container> -c test_data -g test_annotation/annotation.bed > test.genelist
+
+Your test output should be identical to test_output/genelist
