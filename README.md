@@ -2,7 +2,7 @@
 
 Program (and docker container instructions) for mapping CNV segment scores to a list of genes.
 
-**Input** is an annotation in `.bed` format directory that contains `*.cnv` files. This is the standard five column output for the Varscan CNV caller and consists of
+**Input** is an annotation in `.bed` format plus a directory that contains `*.cnv` files. This is the standard five column output for the Varscan CNV caller and consists of
 
 ```
 sampleID    chrom    loc.start    loc.end    num.mark    seg.mean
@@ -19,15 +19,15 @@ When a gene overlaps multiple segments, again the most extreme score (positive o
 
 *Note: An earlier implementation of the code reported any such breakpoints but this does not fit in the gistic style format. If breakpoints are important to you, please [contact the author](mailto:jeltje.van.baren@gmail.com)*.
 
-To run cnvtogenes.py you can dowload it from the github repo directly:
-`wget https://raw.githubusercontent.com/Jeltje/cnvtogenes/master/cnvToGenes.py`
+To run `cnvtogenes.py` you can dowload it from the github repo directly:
+`wget https://raw.githubusercontent.com/jeltje/cnvtogenes/master/cnvToGenes.py`
 cnvtogenes.py requires the intervaltree package, which you can retrieve using `pip install intervaltree`.
 
 Alternatively you can run the code via a docker container. For the examples below, I am assuming this.
 
 ## Getting the docker container
 
-The latest cnvtogenes docker image can be downloaded directly from quay.io using
+The latest cnvtogenes docker image can be pulled directly from quay.io using
 `docker pull quay.io/jeltje/cnvtogenes`
 
 Alternatively, you can build from the github repo:
@@ -57,7 +57,7 @@ where
 
 `inputdir` is the directory that contains `.cnv` files. You can get these through [Varscan](https://github.com/Jeltje/varscan) or [ADTEx](https://github.com/Jeltje/adtex)
 
-`genome annotation.bed` is a [bed format]() file containing your genes of interest. 
+`genome annotation.bed` is a [bed format](https://genome.ucsc.edu/FAQ/FAQformat#format1) file containing your genes of interest. 
 
 It is important that the chromosome annotation (`chr7` vs `7`) matches between the bed file and the .cnv files. If your bed file uses `chr` but your cnv files do not, you can set the `--nochr` flag.
 
