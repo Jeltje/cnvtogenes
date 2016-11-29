@@ -39,7 +39,7 @@ docker build -t jeltje/cnvtogenes .
 
 ## Running the docker container
 
-For details on running docker containers in general, see the excellent tutorial at https://docs.docker.com/linux/
+For details on running docker containers in general, see the excellent tutorial at https://docs.docker.com/
 
 To see a usage statement, run
 
@@ -63,7 +63,7 @@ It is important that the chromosome annotation (`chr7` vs `7`) matches between t
 
 ### Output
 
-The program writes to `STDOUT` so you can capture the results using the '>' sign.
+The program writes to `STDOUT` so you can capture the results using the `>` sign.
 
 If you want to do a test run, please `git clone https://github.com/jeltje/cnvtogenes.git` and look in the `test/` directory. Instructions are in the `test/README.md` file.
 
