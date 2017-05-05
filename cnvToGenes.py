@@ -129,6 +129,8 @@ for fname in glob.glob(os.path.join(args.cnvdir, '*.cnv')):
         header += "\t{}".format(sample)
         foundGenes = dict()
         for inline in g:
+            if not inline.strip():
+               continue 
             if inline.startswith('ID') or inline.startswith('Sample'):
                continue
             myseg = segment(inline.strip(), args.round)
